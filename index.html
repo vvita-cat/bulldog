@@ -1,0 +1,26 @@
+<script src="nn.min.js"></script>
+
+<script>
+  
+
+  async function setup () {
+
+    
+    const url = 'https://dog.ceo/api/breed/bulldog/english/images/random'
+    const res = await fetch(url)
+    const data = await res.json()
+
+    
+    console.log(data)
+
+    
+    nn.create('img')
+      .set('src', data.message)
+      .css('width', 450)
+      .addTo('body')
+  }
+
+  nn.on('load', setup)
+  nn.on('click', setup)
+
+</script>
